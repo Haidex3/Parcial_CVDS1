@@ -29,7 +29,10 @@ public class Center{
         return productos.getOrDefault(producto, 0);
     }
 
-    public void modificStock(Producto producto, int amount){
+    public void modificStock(Producto producto, int amount, boolean isLess){
+        if(isLess){
+            amount=amount*(-1);
+        }
         if (productos.getOrDefault(producto, 0)+amount<0){
             System.out.printf("No hay la suficiente cantidad de este producto");
         }
