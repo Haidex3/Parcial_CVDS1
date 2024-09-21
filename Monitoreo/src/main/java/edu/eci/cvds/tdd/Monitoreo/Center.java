@@ -26,7 +26,7 @@ public class Center{
     public Center(){
         String res = "";
          try { Handler consoleHandler = new ConsoleHandler();
-            Handler fileHandler = new FileHandler("C:/Users/haider.rodriguez-m/Documents/CVDS/PARCIAL_CVDS1", true);}
+            Handler fileHandler = new FileHandler("C:/Users/haider.rodriguez-m/Documents/CVDS/PARCIAL_CVDS1/Logs/Monitoreo.log", true);}
             catch (Exception e) {
                 LOG_MONITORING.log(Level.SEVERE, e.getMessage()); res = "Error, check with your service provider"; }
         productos= new HashMap<>();

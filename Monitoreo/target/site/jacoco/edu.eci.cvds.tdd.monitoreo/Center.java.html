@@ -26,9 +26,9 @@ public class Center{
 <span class="fc" id="L26">    public Center(){</span>
 <span class="fc" id="L27">        String res = &quot;&quot;;</span>
 <span class="fc" id="L28">         try { Handler consoleHandler = new ConsoleHandler();</span>
-<span class="fc" id="L29">            Handler fileHandler = new FileHandler(&quot;C:/Users/haider.rodriguez-m/Documents/CVDS/PARCIAL_CVDS1&quot;, true);}</span>
+<span class="nc" id="L29">            Handler fileHandler = new FileHandler(&quot;C:/Users/haider.rodriguez-m/Documents/CVDS/PARCIAL_CVDS1/Logs/Monitoreo.log&quot;, true);}</span>
 <span class="fc" id="L30">            catch (Exception e) {</span>
-<span class="fc" id="L31">                LOG_MONITORING.log(Level.SEVERE, e.getMessage()); res = &quot;Error, check with your service provider&quot;; }</span>
+<span class="pc" id="L31">                LOG_MONITORING.log(Level.SEVERE, e.getMessage()); res = &quot;Error, check with your service provider&quot;; }</span>
 <span class="fc" id="L32">        productos= new HashMap&lt;&gt;();</span>
 
 <span class="fc" id="L34">    }</span>

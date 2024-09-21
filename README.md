@@ -24,4 +24,5 @@
 
 ![Repositorio Github](Imagenes/Captura7.png)
 
+**Es necesario cambiar la ruta y el usuario para el computador donde se quiera compilar**
 
