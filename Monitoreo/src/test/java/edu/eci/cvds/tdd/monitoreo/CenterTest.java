@@ -15,4 +15,15 @@ public class CenterTest {
         center.addProducto(producto,5); 
         assertEquals(5, center.getProductCount(producto));
     }
+
+
+    @Test
+    public void shouldModificStock() {
+        Center center= new Center();
+        Producto producto=new Producto("XBOX",1000000,"CONSOLAS");
+        center.addProducto(producto,5); 
+        center.modificStock(producto,-1); 
+        assertEquals(4, center.getProductCount(producto));
+    }
+
 }
