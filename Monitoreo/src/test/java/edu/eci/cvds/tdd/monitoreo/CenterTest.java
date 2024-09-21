@@ -2,12 +2,19 @@ package edu.eci.cvds.tdd.monitoreo;
 
 import edu.eci.cvds.tdd.monitoreo.Center;
 import edu.eci.cvds.tdd.monitoreo.producto.Producto;
-
+import java.util.logging.ConsoleHandler; 
+import java.util.logging.FileHandler; 
+import java.util.logging.Handler; 
+import java.util.logging.Level; 
+import java.util.logging.Logger; 
+import java.util.logging.SimpleFormatter;
 
 
 import static org.junit.Assert.*;
 import org.junit.Test;
 public class CenterTest {
+    private final static Logger LOG_MONITORING = Logger.getLogger("com.tests.project");
+
     @Test
     public void shouldAddProducto() {
         Center center= new Center();

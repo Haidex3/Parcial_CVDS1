@@ -9,42 +9,60 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Center{
-    private final Map&lt;Producto, Integer&gt; productos;
-<span class="fc" id="L14">    public Center(){</span>
-<span class="fc" id="L15">        productos= new HashMap&lt;&gt;();</span>
+import java.util.logging.ConsoleHandler; 
+import java.util.logging.FileHandler; 
+import java.util.logging.Handler; 
+import java.util.logging.Level; 
+import java.util.logging.Logger; 
+import java.util.logging.SimpleFormatter;
 
-<span class="fc" id="L17">    }</span>
+/*
+    *This class is the &quot;center of the sistem&quot; she manage the data of products
+*/
+public class Center{
+<span class="fc" id="L23">    private final static Logger LOG_MONITORING = Logger.getLogger(&quot;com.tests.project&quot;);</span>
+
+    private final Map&lt;Producto, Integer&gt; productos;
+<span class="fc" id="L26">    public Center(){</span>
+<span class="fc" id="L27">        String res = &quot;&quot;;</span>
+<span class="fc" id="L28">         try { Handler consoleHandler = new ConsoleHandler();</span>
+<span class="fc" id="L29">            Handler fileHandler = new FileHandler(&quot;C:/Users/haider.rodriguez-m/Documents/CVDS/PARCIAL_CVDS1&quot;, true);}</span>
+<span class="fc" id="L30">            catch (Exception e) {</span>
+<span class="fc" id="L31">                LOG_MONITORING.log(Level.SEVERE, e.getMessage()); res = &quot;Error, check with your service provider&quot;; }</span>
+<span class="fc" id="L32">        productos= new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L34">    }</span>
 
     public void addProducto(Producto producto, int amount){
-<span class="fc bfc" id="L20" title="All 2 branches covered.">        if(productos.containsKey(producto)){</span>
-<span class="fc" id="L21">            productos.put(producto, productos.get(producto) + amount);</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if(productos.containsKey(producto)){</span>
+<span class="fc" id="L38">            productos.put(producto, productos.get(producto) + amount);</span>
         }
         else {
-<span class="fc" id="L24">            productos.put(producto, amount);</span>
+<span class="fc" id="L41">            productos.put(producto, amount);</span>
         }
-<span class="fc" id="L26">    }</span>
+<span class="fc" id="L43">    }</span>
 
     public int getProductCount(Producto producto) {
-<span class="fc" id="L29">        return productos.getOrDefault(producto, 0);</span>
+<span class="fc" id="L46">        return productos.getOrDefault(producto, 0);</span>
     }
 
     public void modificStock(Producto producto, int amount, boolean isLess){
-<span class="fc bfc" id="L33" title="All 2 branches covered.">        if(isLess){</span>
-<span class="fc" id="L34">            amount=amount*(-1);</span>
+<span class="fc bfc" id="L50" title="All 2 branches covered.">        if(isLess){</span>
+<span class="fc" id="L51">            amount=amount*(-1);</span>
         }
-<span class="fc bfc" id="L36" title="All 2 branches covered.">        if (productos.getOrDefault(producto, 0)+amount&lt;0){</span>
-<span class="fc" id="L37">            System.out.printf(&quot;No hay la suficiente cantidad de este producto&quot;);</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">        if (productos.getOrDefault(producto, 0)+amount&lt;0){</span>
+<span class="fc" id="L54">            LOG_MONITORING.log(Level.INFO, &quot;No hay la suficiente cantidad de este producto&quot;);</span>
+<span class="fc" id="L55">            System.out.printf(&quot;No hay la suficiente cantidad de este producto&quot;);</span>
         }
-<span class="fc bfc" id="L39" title="All 2 branches covered.">        else if (productos.getOrDefault(producto, 0)+amount&lt;5){</span>
-<span class="fc" id="L40">            productos.put(producto, productos.get(producto) + amount);</span>
-<span class="fc" id="L41">            System.out.printf(&quot;Hay menos de5 de este producto&quot;);</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">        else if (productos.getOrDefault(producto, 0)+amount&lt;5){</span>
+<span class="fc" id="L58">            productos.put(producto, productos.get(producto) + amount);</span>
+<span class="fc" id="L59">            System.out.printf(&quot;Hay menos de5 de este producto&quot;);</span>
         }
         else{
-<span class="fc" id="L44">            productos.put(producto, productos.get(producto) + amount);</span>
+<span class="fc" id="L62">            productos.put(producto, productos.get(producto) + amount);</span>
         }
 
-<span class="fc" id="L47">    }</span>
+<span class="fc" id="L65">    }</span>
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>

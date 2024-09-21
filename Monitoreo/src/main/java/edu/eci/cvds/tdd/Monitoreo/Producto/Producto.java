@@ -14,15 +14,4 @@ public class Producto
         cate=NewCate;
     }
 
-    /*public int getAmount(){
-        return amount;
-    }
-
-    public void setAmount(int amountRest){
-        if (amount-amountRest<0){
-            System.out.printf("No hay la suficiente cantidad de este producto");
-            //propagar execpcion
-        }
-    }*/
-
 }
